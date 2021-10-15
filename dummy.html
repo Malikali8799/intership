@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InputRange</title>
+    <style>
+        body{
+            background-color: yellow;
+        }
+       .input {
+            margin: 10px;
+        }
+
+        .button {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Enter Values:</p>
+    <form>
+
+
+
+        <div>
+            <!-- <input class="input" required type="number" id="val1" min="0" max="100" /> -->
+            <input onchange="Onchangedata1(event)" value="0" class="inputrange" type="range" id="val1" name="volume"
+                min="0" max="100">
+            <label for="val1">Value 1</label>
+        </div>
+        <div>
+            <input onchange="Onchangedata2(event)" value="0" class="inputrange" type="range" id="val2" name="volume"
+                min="0" max="100">
+            <!-- <input required class="input" type="number" id="val2" min="0" max="100" /> -->
+            <label for="val2">Value 2</label>
+        </div>
+        <div>
+            <input onchange="Onchangedata3(event)" value="0" class="inputrange" type="range" id="val3" name="volume"
+                min="0" max="100">
+            <!-- <input required class="input" type="number" id="val3" min="0" max="100" /> -->
+            <label for="val3">Value 3</label>
+        </div>
+        <div>
+            <button type="submit" onclick="Check()" class="button" id="btn">
+                Check
+            </button>
+        </div>
+        <div>
+            <span id="span">
+
+            </span>
+        </div>
+
+    </form>
+    <script>
+        let finalvalue = 0;
+        let finalvalue1 = 0;
+        let finalvalue2 = 0;
+        let finalvalue3 = 0;
+        let value1 = document.getElementById("val1")
+        let value2 = document.getElementById("val2")
+        let value3 = document.getElementById("val3")
+
+        function Onchangedata1(evt) {
+           
+            finalvalue1 = +evt.target.value
+
+            finalvalue = finalvalue1 + finalvalue2 + finalvalue3;
+            if (finalvalue >= 100) {
+                alert("Sum Greater then 100")
+
+                value1.disabled = true;
+                value2.disabled = true;
+                value3.disabled = true;
+            }
+
+
+        }
+        function Onchangedata2(evt) {
+           
+            finalvalue2 = +evt.target.value
+            finalvalue = finalvalue1 + finalvalue2 + finalvalue3;
+           
+            if (finalvalue >= 100) {
+                alert("Sum Greater then 100")
+                value1.disabled = true;
+                value2.disabled = true;
+                value3.disabled = true;
+            }
+
+
+        }
+        function Onchangedata3(evt) {
+           
+            finalvalue3 = +evt.target.value
+            finalvalue = finalvalue1 + finalvalue2 + finalvalue3;
+           
+            if (finalvalue >= 100) {
+                alert("Sum Greater then 100")
+                value1.disabled = true;
+                value2.disabled = true;
+                value3.disabled = true;
+            }
+
+        }
+        if (finalvalue >= 100) {
+        
+            document.getElementById("val1").disabled = true;
+            //  document.getElementsByClassName("inputrange").disabled =true;
+        }
+
+        function Check() {
+          
+         alert("Your final Value is" +finalvalue)
+
+        }
+
+
+    </script>
+</body>
+
+</html>
